@@ -9,7 +9,7 @@ pipeline {
     environment {
         registry: "hrgh8787/app01-img"
         registyCredential: "dockerhub"
-
+    }
     stages{
         stage('BUILD'){
             steps {
