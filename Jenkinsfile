@@ -9,9 +9,9 @@ pipeline {
 
     environment {
         registry = "hrgh8787/app-img"
-        registyCredential = "dockerhub"
+        registryCredential = "dockerhub"
         SONARSERVER = 'sonarserver'
-        SONARSCANNER = 'sonarscanner2'
+        SONARSCANNER = 'sonarscanner'
     }
     stages{
         stage('BUILD'){
@@ -82,7 +82,7 @@ pipeline {
     }
     stage('Upload Image') {
         steps {
-            script{
+            script{                     
                 docker.withRegistry('', registryCredential) {
                     dockerImage.push("$BUILD_NUMBER")
                     dockerImage.push("$latest") 
