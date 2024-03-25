@@ -8,7 +8,7 @@ pipeline {
     }
 
     environment {
-        registry = "hrgh8787/app01-img"
+        registry = "hrgh8787/app-img"
         registyCredential = "dockerhub"
         SONARSERVER = 'sonarserver'
         SONARSCANNER = 'sonarscanner2'
