@@ -9,7 +9,6 @@ pipeline {
     environment {
         registry = "hrgh8787/app01-img"
         registyCredential = "dockerhub"
-        scannerHome = tool "${sonarscanner}"
     }
     stages{
         stage('BUILD'){
@@ -50,11 +49,11 @@ pipeline {
         stage('CODE ANALYSIS with SONARQUBE') {
 
             environment {
-                scannerHome = tool 'sonarscanner'
+                scannerHome = tool "${sonarscanner}"
             }
 
             steps {
-                withSonarQubeEnv("${sonarscanner}") {
+                withSonarQubeEnv("${sonarserver}") {
                     sh '''${scannerHome}/bin/sonar-scanner -Dsonar.projectKey=vprofile \
                    -Dsonar.projectName=vprofile-repo \
                    -Dsonar.projectVersion=1.0 \
