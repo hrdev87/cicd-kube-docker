@@ -7,8 +7,8 @@ pipeline {
     }
 */
     environment {
-        registry: "hrgh8787/app01-img"
-        registyCredential: dockerhub
+        registry = "hrgh8787/app01-img"
+        registyCredential = "dockerhub"
     }
     stages{
         stage('BUILD'){
@@ -92,7 +92,7 @@ pipeline {
             sh "docker rmi $registry:V$BUILD_NUMBER"
         }
     }
-    stage('Kuberenetes Deploy')
+    stage ('Kuberenetes Deploy')
     agent{
          'KOPS'
     }
