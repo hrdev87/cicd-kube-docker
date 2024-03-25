@@ -10,7 +10,7 @@ pipeline {
         registry = "hrgh8787/app01-img"
         registyCredential = "dockerhub"
         SONARSERVER = 'sonarserver'
-        SONARSCANNER = 'sonarscanner'
+        SONARSCANNER = 'sonarscanner2'
     }
     stages{
         stage('BUILD'){
