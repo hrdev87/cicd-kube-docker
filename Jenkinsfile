@@ -2,11 +2,11 @@ pipeline {
 
     agent any
 
-	tools {
+	/*tools {
         maven "MAVEN3"
         jdk "OracleJDK8"
     }
-
+*/
     environment {
         registry = "hrgh8787/app-img"
         registryCredential = "dockerhub"
@@ -84,8 +84,8 @@ pipeline {
         steps {
             script{                     
                 docker.withRegistry('', registryCredential) {
-                    dockerImage.push("$BUILD_NUMBER")
-                    dockerImage.push("$latest") 
+                    dockerImage.push("V$BUILD_NUMBER")
+                    dockerImage.push("Latest") 
                 }
             }
         }
